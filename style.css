@@ -1,0 +1,781 @@
+body{
+    background-color:rgb(239, 246, 250);
+    margin: 0;
+    padding:0;
+    font-family: sans-serif;
+    display: grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-template-rows: minmax(50px,auto);
+}
+
+div{
+    overflow: auto;
+}
+
+header div{
+    padding: 5px;
+}
+
+header{
+    display: grid;
+    grid-column: 1/13;
+    grid-row: 1/2;
+    background-color:rgb(13, 13, 73);
+}
+
+#search_container{
+    display: grid;
+    grid-column: 1/13;
+    grid-row: 2/3;
+}
+
+#search_container {
+    text-align: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.search input[type="search"] {
+    border: 2px solid rgb(13, 13, 73);;
+    border-radius: 20px;
+    padding: 10px 114px;
+    width: 400px;
+    text-align: center;
+    outline: none;
+    font-size: 12px;
+}
+
+.search_button {
+    background-color: rgb(255, 255, 255);;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 15px;
+    margin-left: -55px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.search_button img {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
+
+.search_button:hover {
+    background-color: rgb(216, 153, 153)
+}
+
+#nav{
+    background-color:transparent;
+    grid-column: 1/13;
+    grid-row:2/3;
+    text-align: center;
+    background-color: rgb(13, 13, 73);
+}
+#nav a{
+    color: white;
+    text-decoration: none;
+    float: left;
+    margin: 5px;
+    padding:5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.nav_div:hover{
+    color:rgb(216, 153, 153);
+}
+
+#current{
+    color:rgb(216, 153, 153);
+}
+
+#content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column:1/13;
+    grid-row: 3/auto;
+}
+
+#content h1,h2,h3,h4{
+    color: #0d0d49;
+}
+
+/*--------------------slideshow--------------------*/
+#slide{
+    grid-column: 1/13;
+    grid-row: 1/4;
+    height: 400px;
+    padding:0;
+    margin:0;
+    border-bottom: 5px solid rgb(13, 13, 73);
+    border-radius: 0px 0px 20px 20px;
+}
+  
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+  
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    display: none;
+}
+
+#slide1{
+    background-image: url('images/image1.jpg')
+}
+
+#slide2{
+    background-image: url('images/image2.jpg')
+}
+
+#slide3{
+    background-image: url('images/image3.jpeg')
+}
+
+#slide1-parent{
+    background-image: url('images/parenthelp.jpg')
+}
+
+#slide2-parent{
+    background-image: url('images/parenthelp.jpg')
+}
+
+#slide3-parent{
+    background-image: url('images/parenthelp.jpg')
+}
+
+#slide1-security{
+    background-image: url('images/security.jpg')
+}
+
+#slide2-security{
+    background-image: url('images/security.jpg')
+}
+
+#slide3-security{
+    background-image: url('images/security.jpg')
+}
+
+#slide1-info {
+    background-image: url('images/imageinfo-1.jpg')
+}
+
+#slide2-info{
+    background-image: url('images/imageinfo-1.jpg')
+}
+
+#slide3-info{
+    background-image: url('images/imageinfo-1.jpg')
+}
+
+
+#slide1-contact{
+    background-image: url('images/contactus.jpg')
+}
+
+#slide2-contact{
+    background-image: url('images/contactus.jpg')
+}
+
+#slide3-contact{
+    background-image: url('images/contactus.jpg')
+}
+
+#slide1-livestreaming{
+    background-image: url('images/livestreaming.jpg')
+}
+
+#slide2-livestreaming{
+    background-image: url('images/livestreaming2.jpg')
+}
+
+#slide3-livestreaming{
+    background-image: url('images/livestreaming.jpg')
+}  
+
+#slide1-Legislation{
+    background-image: url('images/Legislation.jpg')
+}
+
+#slide2-Legislation{
+    background-image: url('images/Legislation.jpg')
+}
+
+#slide3-Legislation{
+    background-image: url('images/Legislation.jpg')
+} 
+
+.caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#Popular{
+    color: #0d0d49;
+    text-align: center;
+    grid-column: 1/13;
+    grid-row: auto;
+    margin:5%;
+    margin-bottom: 0;
+}
+
+#Popularapps{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#Popularapps div{
+    margin: 13px;
+}
+
+#Popularapps img{
+    width: 280px;
+    height:auto;
+    padding: 0;
+    margin:0;
+    cursor: pointer;
+}
+
+#Popularapps h3{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shaking {
+    animation: shake 0.5s ease;
+}
+
+#safe {
+    color: #0d0d49;
+    grid-column: 1/3;
+    margin: 5%;
+    margin-top: 40px;
+}
+
+#safe h1{
+    text-align: center;
+}
+
+#safetips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: centers;
+}
+
+.tip {
+    width: 47.5%;
+    margin: 1%;
+    border: solid 3px rgba(0, 0, 0, 0.473);
+    border-radius: 50px;
+    color:black;
+    display: flex;
+    align-items: center;
+}
+.tip img{
+    width: 200px;
+    height:auto;
+}
+
+/*-------------------------------------------------------*/
+
+/*---------------information page-----------------------*/
+#map {  
+    margin: 5%;
+    margin-top:0;
+    height: 400px;
+    grid-column: 1/3;
+}
+
+#brunch{
+    text-align: center;
+    grid-column: 1/3;
+}
+#about{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column: 1/3;
+    margin:5%;
+    margin-bottom:15px;
+    box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-text{
+    grid-column: 1/2;
+    padding:10px;
+    overflow: hidden;
+    
+}
+#about-image{
+    grid-column:2/3;
+    width: 100%;
+    height: 100hv;
+    text-align: center;
+    object-fit: cover;
+    background-image: url('images/awareness.jpg');
+    background-position: center;
+    background-size:cover;
+    min-height: 300px;
+}
+
+#staff{
+    color: #0d0d49;
+    text-align: center;
+    grid-column: 1/13;
+    grid-row: auto;
+    margin:5%;
+    margin-bottom: 3%;
+    box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#staff-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#staff-div div{
+    margin: 13px;
+}
+
+#staff-div img{
+    width: 200px;
+    height:200px;
+    padding: 0;
+    margin:0;
+    cursor: pointer;
+}
+
+#staff h3{
+    margin: 0;
+    padding: 0;
+}
+
+/*----------------------------------------------------*/
+
+/*---------------contact us form----------------------*/
+.contact-form {
+    margin-top: 30px;
+    text-align: left;
+    grid-column: 1/3;
+    margin: 5%;
+    padding:5px;
+}
+.contact-form a{
+    text-decoration: none;
+}
+
+.contact-form h1{
+text-align: center;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.contact-form textarea {
+    height: 150px;
+}
+.contact-form input[type="submit"] {
+    background-color: #0d0d49;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact-form input[type="submit"]:hover {
+    background-color: #232383;
+}
+
+
+/*------------------------help page-------------------------*/
+#help-title{
+    grid-column: 1/3;
+    text-align: center;
+}
+
+#help{
+    padding:10px;
+    grid-column: 1/3;
+    margin: 5%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+/*----------------------paypal---------------------*/
+.dona {
+    grid-column: span 3;
+    text-align: center;
+    margin-top: 50px;
+}
+  
+.dona h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+#donation-form-container {
+    margin-bottom: 20px;
+}
+  
+#donation-form {
+    display: inline-block;
+}
+  
+#donation-form input[type="text"] {
+    width: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+  
+#donate-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+#donate-button:hover {
+    background-color: #0056b3;
+}
+  
+#paypal-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#donate{
+    padding:10px;
+    grid-column: 1/3;
+    margin: 5%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/*--------------------------popular------------------------------*/
+.apptip {
+    width: 95%;
+    margin: 1%;
+    border: solid 3px rgba(0, 0, 0, 0.473);
+    border-radius: 50px;
+    color:black;
+    display: flex;
+    align-items: center;
+}
+.apptip img{
+    width: 200px;
+    height:auto;
+}
+
+/*---------------------Livestreaming---------------------------*/
+#livestreaming{
+    grid-column: 1/3;
+    padding:10px;
+    margin: 5%;
+    margin-top: 1%;
+}
+
+#livestreaming h1{
+    text-align: center;
+}
+
+#-text{
+    text-align: left;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+/*-------------------------------------------------------------*/
+
+/*--------------------Register/Login form---------------------*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    grid-column: 1/13;
+  }
+  
+.container h2{
+    color:#0d0d49;
+}
+
+.container a{
+    text-decoration: none;
+    font-size: small;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    display: grid;
+    gap: 20px;
+}
+  
+.login-form h2 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    grid-column: 1 / -1;
+}
+  
+.form-group {
+    margin-bottom: 20px;
+}
+  
+.login-form input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+  
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color:#0d0d49;
+    color: #fff;
+    cursor: pointer;
+}
+  
+.login-form button:hover {
+    background-color:#232383;
+}
+
+/*------------------------legislation--------------------------*/
+#laws h2{
+    text-align: center;
+}
+#law-guidance{
+    grid-column: 1/3;
+    margin: 3%;
+}
+.law-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.law-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.law-item {
+    width: 300px;
+    background-color:transparent;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: 20px;
+    box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/*------------------------footer-------------------------*/
+#footer{
+    display: grid;
+    grid-template-columns:repeat(12,1fr);
+    background-color: rgb(13, 13, 73);
+    grid-column: 1/13;
+}
+
+#social{
+    grid-column: 1/13;
+    padding:10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigate{
+    grid-column: 1/13;
+    padding:10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#navigate a{
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    float: left;
+    margin:2px;
+    padding:2px;
+}
+
+#social a{
+    float: left;
+}
+
+#social img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#rights{
+    grid-column: 1/13;
+    color: #b8b8b8;
+    text-align: center;
+}
+
+/*--------------------------------privacy---------------------------------*/
+#privacy {
+    grid-column: 1/3;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#privacy h2 {
+    margin-top: 0;
+}
+#privacy ul {
+    margin: 0;
+    padding: 0;
+}
+#privacy li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+#privacy a {
+    color: #007bff;
+    text-decoration: none;
+}
+#privacy a:hover {
+    text-decoration: underline;
+}
+
+/*----------------response to smaller screensize-------------------*/
+@media only screen and (max-width:1326px){
+    .tip {
+        width: 99%;
+        margin: 1%;
+    }
+
+    @media only screen and (max-width:810px){
+        #about-text{
+            grid-column: 1/3;
+        }
+        #about-image{
+            grid-column:1/3;
+            grid-row: 1;
+        }
+
+        .law-item {
+            flex: 0 1 calc(100% - 20px);
+        }
+
+            @media only screen and (max-width:680px){
+            #Popularapps img{
+                width: 140px;
+            }
+            #paypal-button-container {
+                max-width: 95%;
+            }
+
+            @media only screen and (max-width:600px){
+                    #navigate {
+                        flex-direction: column;
+                        align-items: center;
+                    } 
+
+                    .tip img{
+                        width: 150px;
+                    }
+                    .login-form{
+                        background-color:rgb(239, 246, 250);
+                        box-shadow: none;
+                    }
+                    
+                    @media only screen and (max-width:390px){
+                        .tip img{
+                            width: 100px;
+                        }
+                    }
+                }
+        }
+    }
+}

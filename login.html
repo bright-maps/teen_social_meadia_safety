@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMC Ltd.|Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="login">
+  <div class="container">
+    <form class="login-form" action="loginuser.php" method="POST">
+      <h2>Log in</h2>
+      <div class="form-group">
+        <input name="email" type="email" id="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input name="password" type="password" id="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Log in</button>
+      <a href="createaccount.html">Dont Have An Account?</a>
+    </form>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const errorMessage = params.get('error');
+    const attempts = params.get('attempts');
+
+    if (errorMessage === 'account_not_found') {
+        alert('Account not found. Please create an account first.');
+    } else if (errorMessage === 'incorrect_password') {
+        alert(`Incorrect password. You have ${attempts} attempts remaining.`);
+    } else if (errorMessage === 'login_locked') {
+        alert('Login locked due to too many failed attempts.');
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

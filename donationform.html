@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="fontawesome-free-6.3.0-web/css/all.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!--  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css" /> -->
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AWhJaiZNVftDQezCZTezQzMCio3c-B3Y7bSQHRIm6-drxAy6pY1iN5dK_2XEC9d6aSSDpogwaEwCn7Es"></script>
+
+<body>
+  <div class="dona">
+    
+    <h1>Make an impact By donating </h1>
+    <div id="donation-form-container">
+      <label for="donation-amount">Enter your donation amount:</label>
+    </div>
+    <button id="donate-button">Donate</button>
+    <div id="paypal-button-container"></div>
+
+  </div>
+  <script>
+    // Declare variables
+    let donatedAmount = 20.00; // Default donation amount
+    let campaignId = null;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const donationFormContainer = document.getElementById('donation-form-container');
+      const donationForm = document.createElement('form');
+      donationForm.id = 'donation-form';
+      donationForm.innerHTML = `
+        <input type="text" id="donation-amount" name="donation-amount" pattern="[0-9]*" required />
+      `;
+      donationFormContainer.appendChild(donationForm);
+
+      document.getElementById('donation-amount').addEventListener('blur', function() {
+        const donationAmountInput = document.getElementById('donation-amount');
+        donatedAmount = parseFloat(donationAmountInput.value);
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('id')) {
+          campaignId = urlParams.get('id');
+      } else {
+          console.error('Campaign ID not found in the URL');
+      }
+
+      const userId = localStorage.getItem('userId');
+
+      function initializePayPalButton() {
+        const payload = {
+          donatedAmount: donatedAmount,
+          campaignId: campaignId,
+          userId: userId
+        };
+
+        const jsonData = JSON.stringify(payload);
+
+        const existingPayPalButton = document.getElementById('paypal-button-container');
+        if (existingPayPalButton) {
+          existingPayPalButton.innerHTML = '';
+        }
+
+        paypal.Buttons({
+          createOrder: function(data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: donatedAmount.toFixed(2)
+                }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+              // Show an alert with the donor's name and amount
+              alert('Thank you for your donation, ' + details.payer.name.given_name + '! You donated: $' + donatedAmount);
+
+              $.ajax({
+                type: "POST",
+                url: "donationTracking.php", 
+                data: jsonData, 
+                contentType: "application/json", 
+                success: function(response) {
+                  console.log("Data inserted successfully");
+                },
+                error: function(xhr, status, error) {
+                  console.error("Error inserting data: " + error);
+                }
+              });
+
+            });
+          }
+        }).render('#paypal-button-container');
+      }
+
+      document.getElementById('donate-button').addEventListener('click', function() {
+        const donationAmountInput = document.getElementById('donation-amount');
+        if (donationAmountInput.value !== '') {
+          initializePayPalButton();
+        } else {
+          alert('Please enter a donation amount.');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
